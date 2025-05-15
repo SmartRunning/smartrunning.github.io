@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Coach with athletes -->
+  <circle cx="70" cy="55" r="15" fill="#555555" />
+  <path d="M70 70 L70 110 L60 140 L55 140 L65 110 L70 110" fill="#555555" />
+  <path d="M70 70 L70 110 L80 140 L85 140 L75 110 L70 110" fill="#555555" />
+  <path d="M70 80 L55 100 L45 95" fill="#555555" stroke="#555555" stroke-width="3" stroke-linecap="round" />
+  <path d="M70 80 L85 100 L95 95" fill="#555555" stroke="#555555" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Athletes (smaller figures) -->
+  <circle cx="40" cy="75" r="8" fill="#777777" />
+  <path d="M40 83 L40 110 L35 125 L32 125 L37 110 L40 110" fill="#777777" />
+  <path d="M40 83 L40 110 L45 125 L48 125 L43 110 L40 110" fill="#777777" />
+  
+  <circle cx="100" cy="75" r="8" fill="#777777" />
+  <path d="M100 83 L100 110 L95 125 L92 125 L97 110 L100 110" fill="#777777" />
+  <path d="M100 83 L100 110 L105 125 L108 125 L103 110 L100 110" fill="#777777" />
+  
+  <!-- Data/Analytics represented by charts and graphs to the side -->
+  <rect x="130" y="50" width="50" height="70" rx="5" fill="#333333" />
+  <rect x="135" y="55" width="40" height="15" rx="2" fill="#555555" />
+  
+  <!-- Chart symbols inside the computer -->
+  <polyline points="140,85 145,75 150,90 155,65 160,80 165,70" 
+           stroke="#f46e07" stroke-width="2" fill="none" />
+  
+  <!-- Divider between coach and data -->
+  <path d="M115 40 L115 130" stroke="#f46e07" stroke-width="3" stroke-dasharray="6,3" />
+  
+
+</svg>
