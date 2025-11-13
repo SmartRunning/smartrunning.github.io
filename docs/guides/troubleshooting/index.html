@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-guides/troubleshooting" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Troubleshooting | SmartRunning</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://smartrunning.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://smartrunning.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://smartrunning.github.io/docs/guides/troubleshooting"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Troubleshooting | SmartRunning"><meta data-rh="true" name="description" content="Common issues and solutions for the SmartRunning Training Optimization Platform."><meta data-rh="true" property="og:description" content="Common issues and solutions for the SmartRunning Training Optimization Platform."><link data-rh="true" rel="icon" href="/img/src_favicon.ico"><link data-rh="true" rel="canonical" href="https://smartrunning.github.io/docs/guides/troubleshooting"><link data-rh="true" rel="alternate" href="https://smartrunning.github.io/docs/guides/troubleshooting" hreflang="en"><link data-rh="true" rel="alternate" href="https://smartrunning.github.io/docs/guides/troubleshooting" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.2b48f0f9.css">
+<script src="/assets/js/runtime~main.a1c4be24.js" defer="defer"></script>
+<script src="/assets/js/main.b6da5e85.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/SRC_logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/SRC_logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/SRC_logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SmartRunning</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Documentation</a><a class="navbar__item navbar__link" href="/blog">Releases</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro">SmartRunning intro</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/overview">Platform Overview</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/beta/HowTo">Beta</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/architecture/overview">Architecture</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/storage/database-schema">Storage</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/guides/troubleshooting">Guides</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/guides/troubleshooting">Troubleshooting</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/privacy">Privacy Policy</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Guides</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Troubleshooting</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Troubleshooting Guide</h1></header>
+<p>Common issues and solutions for the SmartRunning Training Optimization Platform.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="runner-creation--onboarding-issues">Runner Creation &amp; Onboarding Issues<a href="#runner-creation--onboarding-issues" class="hash-link" aria-label="Direct link to Runner Creation &amp; Onboarding Issues" title="Direct link to Runner Creation &amp; Onboarding Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="missing-default-values-pbs-heart-rate-zones">Missing Default Values (PBs, Heart Rate Zones)<a href="#missing-default-values-pbs-heart-rate-zones" class="hash-link" aria-label="Direct link to Missing Default Values (PBs, Heart Rate Zones)" title="Direct link to Missing Default Values (PBs, Heart Rate Zones)">​</a></h3>
+<p><strong>Symptoms:</strong> New runners created through onboarding have no PB values or performance metrics</p>
+<p><strong>Solution:</strong> Fixed in latest version - all runner creation paths now use centralized <code>runner_service.py</code></p>
+<ul>
+<li>Ensures consistent defaults for personal bests across multiple distances</li>
+<li>Auto-calculates performance metrics from default PBs</li>
+<li>Applies heart rate zones based on age</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="javascript-errors-on-onboarding-page">JavaScript Errors on Onboarding Page<a href="#javascript-errors-on-onboarding-page" class="hash-link" aria-label="Direct link to JavaScript Errors on Onboarding Page" title="Direct link to JavaScript Errors on Onboarding Page">​</a></h3>
+<p><strong>Symptoms:</strong> Console errors like &quot;Cannot set properties of null&quot; on <code>/onboarding</code></p>
+<p><strong>Solution:</strong> Fixed - <code>app.js</code> now skips initialization for onboarding page</p>
+<ul>
+<li>Onboarding has its own JavaScript separate from main app</li>
+<li>Defensive null checks added for all element references</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="mongodb-connection-issues">MongoDB Connection Issues<a href="#mongodb-connection-issues" class="hash-link" aria-label="Direct link to MongoDB Connection Issues" title="Direct link to MongoDB Connection Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="connection-failed--timeout">Connection Failed / Timeout<a href="#connection-failed--timeout" class="hash-link" aria-label="Direct link to Connection Failed / Timeout" title="Direct link to Connection Failed / Timeout">​</a></h3>
+<p><strong>Symptoms:</strong> Application fails to start, logs show &quot;Failed to connect to MongoDB&quot;</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Verify connection string in <code>.env</code> file</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Check your .env file has:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">MONGO_CONNECTION_STRING=mongodb+srv://username:password@cluster.mongodb.net/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">DATABASE_NAME=your_database</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Check network connectivity</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Test MongoDB connection</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ping cluster.mongodb.net</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><strong>IP Whitelisting:</strong> Your IP address may not be whitelisted</p>
+<ul>
+<li>See <a href="/docs/storage/mongodb-setup">MongoDB Setup</a> for detailed IP whitelisting troubleshooting</li>
+<li>Quick check: Get your IP from <a href="https://ipinfo.io/ip" target="_blank" rel="noopener noreferrer">ipinfo.io/ip</a> and verify it&#x27;s in MongoDB Atlas Network Access</li>
+</ul>
+</li>
+<li>
+<p>Ensure MongoDB Atlas cluster is running</p>
+<ul>
+<li>Log in to MongoDB Atlas</li>
+<li>Check cluster status (should be green/active)</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ssltls-handshake-errors">SSL/TLS Handshake Errors<a href="#ssltls-handshake-errors" class="hash-link" aria-label="Direct link to SSL/TLS Handshake Errors" title="Direct link to SSL/TLS Handshake Errors">​</a></h3>
+<p><strong>Symptoms:</strong> &quot;SSL: CERTIFICATE_VERIFY_FAILED&quot; or &quot;TLS handshake failed&quot;</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>For Kubernetes/GKE deployments:</strong></p>
+<ul>
+<li>Verify Docker image includes <code>ca-certificates</code> and <code>openssl</code> packages</li>
+<li>Ensure <code>certifi</code> Python package is in requirements.txt</li>
+<li>See <a href="/docs/storage/mongodb-setup">MongoDB Setup</a> for production deployment troubleshooting</li>
+</ul>
+</li>
+<li>
+<p><strong>For local Docker:</strong></p>
+<ul>
+<li>Usually handled automatically</li>
+<li>If issue persists, rebuild: <code>docker-compose build --no-cache</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="authentication--session-issues">Authentication &amp; Session Issues<a href="#authentication--session-issues" class="hash-link" aria-label="Direct link to Authentication &amp; Session Issues" title="Direct link to Authentication &amp; Session Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="login-fails-in-production-gkekubernetes">Login Fails in Production (GKE/Kubernetes)<a href="#login-fails-in-production-gkekubernetes" class="hash-link" aria-label="Direct link to Login Fails in Production (GKE/Kubernetes)" title="Direct link to Login Fails in Production (GKE/Kubernetes)">​</a></h3>
+<p><strong>Symptoms:</strong> Login page loads correctly, but after entering credentials and clicking &quot;Sign In&quot;, the page refreshes to blank with no error messages in browser console. Works locally but fails in cloud deployment.</p>
+<p><strong>Root Cause:</strong> Flask session cookies configured with <code>SESSION_COOKIE_SECURE=True</code> (required for HTTPS) but LoadBalancer/Ingress serving traffic over HTTP.</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>Temporary Fix (HTTP-only deployment):</strong></p>
+<ul>
+<li>Set environment variable in <code>deployment.yml</code>:<!-- -->
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">env</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> SESSION_COOKIE_SECURE</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">value</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;false&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>Redeploy application</li>
+<li>Warning: This disables secure cookie flag. Only use for testing or non-production environments.</li>
+</ul>
+</li>
+<li>
+<p><strong>Production Fix (Recommended):</strong></p>
+<ul>
+<li>Configure HTTPS/TLS for your LoadBalancer or Ingress:<!-- -->
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Example Ingress with TLS</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">apiVersion</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> networking.k8s.io/v1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">kind</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> Ingress</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">metadata</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> smartrunning</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">ingress</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">annotations</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">kubernetes.io/ingress.class</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;nginx&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">cert-manager.io/cluster-issuer</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;letsencrypt-prod&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">spec</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">tls</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token key atrule" style="color:#00a4db">hosts</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> your</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">domain.com</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">secretName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> smartrunning</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">tls</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>Set <code>SESSION_COOKIE_SECURE=true</code> in deployment configuration</li>
+<li>Verify browser DevTools &gt; Application &gt; Cookies shows <code>Secure</code> flag</li>
+</ul>
+</li>
+<li>
+<p><strong>CORS Configuration:</strong></p>
+<ul>
+<li>Ensure CORS is configured with credentials support (already implemented in <code>app/__init__.py</code>):<!-- -->
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">CORS</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">app</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> supports_credentials</span><span class="token operator" style="color:#393A34">=</span><span class="token boolean" style="color:#36acaa">True</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> resources</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">r&quot;/*&quot;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token string" style="color:#e3116c">&quot;origins&quot;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;*&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;methods&quot;</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token string" style="color:#e3116c">&quot;GET&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;POST&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;PUT&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;DELETE&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;OPTIONS&quot;</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Files:</strong></p>
+<ul>
+<li><code>app/config.py</code> - Session cookie configuration (line 38)</li>
+<li><code>deployment.yml</code> - Environment variables for Kubernetes deployment</li>
+<li><code>app/__init__.py</code> - CORS configuration (line 59)</li>
+</ul>
+<p><strong>Verification:</strong></p>
+<ol>
+<li>Check browser DevTools &gt; Network &gt; <code>/auth/login</code> response</li>
+<li>Verify <code>Set-Cookie</code> header is present in response</li>
+<li>Check <code>Application &gt; Cookies</code> to see if session cookie is stored</li>
+<li>If cookie has <code>Secure</code> flag but site uses HTTP, login will fail silently</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="session-expires-too-quickly">Session Expires Too Quickly<a href="#session-expires-too-quickly" class="hash-link" aria-label="Direct link to Session Expires Too Quickly" title="Direct link to Session Expires Too Quickly">​</a></h3>
+<p><strong>Symptoms:</strong> User is logged out after short period of inactivity</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Increase session timeout in <code>.env</code> or <code>deployment.yml</code>:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">env</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> SESSION_TIMEOUT_HOURS</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">value</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;24&quot;</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic"># Default is 8 hours</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Enable &quot;Remember Me&quot; checkbox on login page for 30-day persistent sessions</p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cors-errors-during-login">CORS Errors During Login<a href="#cors-errors-during-login" class="hash-link" aria-label="Direct link to CORS Errors During Login" title="Direct link to CORS Errors During Login">​</a></h3>
+<p><strong>Symptoms:</strong> Browser console shows &quot;CORS policy: No &#x27;Access-Control-Allow-Origin&#x27; header&quot;</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Verify CORS is enabled in <code>app/__init__.py</code> with <code>supports_credentials=True</code></li>
+<li>Check that frontend and backend are using the same protocol (both HTTP or both HTTPS)</li>
+<li>If using custom domain, update CORS origins list to include your domain</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="docker-issues">Docker Issues<a href="#docker-issues" class="hash-link" aria-label="Direct link to Docker Issues" title="Direct link to Docker Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="container-wont-start">Container Won&#x27;t Start<a href="#container-wont-start" class="hash-link" aria-label="Direct link to Container Won&#x27;t Start" title="Direct link to Container Won&#x27;t Start">​</a></h3>
+<p><strong>Symptoms:</strong> <code>docker compose up</code> fails or containers exit immediately</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Clear existing containers and volumes</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose down -v</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Rebuild containers without cache</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose build --no-cache</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose up</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Check Docker logs for specific errors</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose logs -f web</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Verify Docker Desktop is running and has sufficient resources</p>
+<ul>
+<li>Recommended: 4GB RAM minimum, 2 CPUs</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="port-already-in-use">Port Already in Use<a href="#port-already-in-use" class="hash-link" aria-label="Direct link to Port Already in Use" title="Direct link to Port Already in Use">​</a></h3>
+<p><strong>Symptoms:</strong> &quot;Error starting userland proxy: Bind for 0.0.0.0:[port] failed: port is already allocated&quot;</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Find and kill process using the configured port</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># On macOS/Linux</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">lsof -ti:[port] | xargs kill -9</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># On Windows</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">netstat -ano | findstr :[port]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">taskkill /PID [PID] /F</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Change port in <code>docker-compose.yml</code> if needed</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">ports</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;[external_port]:5000&quot;</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic"># Use different external port</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="file-upload-issues">File Upload Issues<a href="#file-upload-issues" class="hash-link" aria-label="Direct link to File Upload Issues" title="Direct link to File Upload Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="understanding-upload-workflow-important">Understanding Upload Workflow (Important!)<a href="#understanding-upload-workflow-important" class="hash-link" aria-label="Direct link to Understanding Upload Workflow (Important!)" title="Direct link to Understanding Upload Workflow (Important!)">​</a></h3>
+<p><strong>How It Works:</strong></p>
+<ul>
+<li>Uploads are <strong>fully asynchronous</strong> - files are saved and processing happens in the background</li>
+<li>Upload completes in less than 1 second, then you see: &quot;Files uploaded successfully. Processing in background...&quot;</li>
+<li><strong>No need to wait</strong> - you can navigate away or close the browser</li>
+<li>Processing continues in background: unzip, convert, analyze, update history</li>
+<li>Check the <strong>background jobs banner</strong> (top of page) for processing status</li>
+<li>New sessions appear automatically once processing completes (refresh page if needed)</li>
+</ul>
+<p><strong>What to Expect:</strong></p>
+<ol>
+<li>Upload FIT/ZIP file(s)</li>
+<li>See immediate confirmation message</li>
+<li>Background jobs banner appears showing processing status</li>
+<li>Banner disappears when complete (usually 30 seconds to few minutes depending on file size)</li>
+<li>Refresh page to see new sessions in calendar/list</li>
+</ol>
+<p><strong>Common Misunderstanding:</strong></p>
+<ul>
+<li>&quot;Upload says complete but I don&#x27;t see sessions&quot;, Processing still running in background, wait for banner to disappear</li>
+<li>&quot;Where&#x27;s the progress bar?&quot;, No progress bar needed, background jobs banner shows status</li>
+<li>&quot;Is it stuck?&quot;, No, processing continues even if you navigate away or refresh</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="file-too-large">File Too Large<a href="#file-too-large" class="hash-link" aria-label="Direct link to File Too Large" title="Direct link to File Too Large">​</a></h3>
+<p><strong>Symptoms:</strong> Upload fails with &quot;413 Payload Too Large&quot; or &quot;File exceeds maximum size&quot;</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Check file size (default limit: 16MB)</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Check file size</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ls -lh yourfile.fit</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Increase limit in <code>.env</code> if needed</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">MAX_CONTENT_LENGTH=33554432  # 32MB in bytes</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Restart application after changing <code>.env</code></p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="invalid-file-format">Invalid File Format<a href="#invalid-file-format" class="hash-link" aria-label="Direct link to Invalid File Format" title="Direct link to Invalid File Format">​</a></h3>
+<p><strong>Symptoms:</strong> Upload succeeds but processing fails, error logs show &quot;Invalid FIT file&quot;</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Verify file format</p>
+<ul>
+<li>Accepted: <code>.fit</code> files or <code>.zip</code> archives containing <code>.fit</code> files</li>
+<li>File must be a valid Garmin FIT file</li>
+</ul>
+</li>
+<li>
+<p>Check file isn&#x27;t corrupted</p>
+<ul>
+<li>Try uploading a different FIT file</li>
+<li>Re-export from Garmin Connect</li>
+</ul>
+</li>
+<li>
+<p>Check file encoding</p>
+<ul>
+<li>FIT files should be binary, not text</li>
+<li>File size should be &gt; 0 bytes</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="upload-directory-permissions">Upload Directory Permissions<a href="#upload-directory-permissions" class="hash-link" aria-label="Direct link to Upload Directory Permissions" title="Direct link to Upload Directory Permissions">​</a></h3>
+<p><strong>Symptoms:</strong> &quot;Permission denied&quot; errors when uploading files</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>For Docker:</strong> Check volume permissions in <code>docker-compose.yml</code></p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">volumes</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> ./data/uploads</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain">/app/data/uploads</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><strong>For local development:</strong> Ensure upload directory exists and is writable</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">mkdir -p data/uploads</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod 755 data/uploads</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="session-processing-issues">Session Processing Issues<a href="#session-processing-issues" class="hash-link" aria-label="Direct link to Session Processing Issues" title="Direct link to Session Processing Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="background-job-stuck">Background Job Stuck<a href="#background-job-stuck" class="hash-link" aria-label="Direct link to Background Job Stuck" title="Direct link to Background Job Stuck">​</a></h3>
+<p><strong>Symptoms:</strong> FIT file uploaded but never appears in sessions list</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Check background job status</p>
+<ul>
+<li>View background jobs in admin dashboard at <code>/admin</code></li>
+<li>Look for jobs with status &quot;failed&quot; or &quot;pending&quot;</li>
+</ul>
+</li>
+<li>
+<p>Check application logs for processing errors</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose logs -f web | grep &quot;ERROR&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Restart application to reset job queue</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose restart</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="statistics-not-calculated">Statistics Not Calculated<a href="#statistics-not-calculated" class="hash-link" aria-label="Direct link to Statistics Not Calculated" title="Direct link to Statistics Not Calculated">​</a></h3>
+<p><strong>Symptoms:</strong> Session appears but has no statistics (HR zones, pace, etc.)</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Verify FIT file contains required data</p>
+<ul>
+<li>Must have heart rate data for HR zone calculations</li>
+<li>Must have GPS/distance data for pace calculations</li>
+</ul>
+</li>
+<li>
+<p>Check if Critical Speed is calculated for runner</p>
+<ul>
+<li>Required for rTSS calculation</li>
+<li>Navigate to runner profile and verify CS values exist</li>
+</ul>
+</li>
+<li>
+<p>Manually trigger statistics recalculation</p>
+<ul>
+<li>Delete and re-upload the FIT file</li>
+<li>Or use admin tools to reprocess session</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="training-plan-issues">Training Plan Issues<a href="#training-plan-issues" class="hash-link" aria-label="Direct link to Training Plan Issues" title="Direct link to Training Plan Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plan-generation-fails">Plan Generation Fails<a href="#plan-generation-fails" class="hash-link" aria-label="Direct link to Plan Generation Fails" title="Direct link to Plan Generation Fails">​</a></h3>
+<p><strong>Symptoms:</strong> &quot;Failed to generate training plan&quot; error</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Verify runner has required data</p>
+<ul>
+<li>Personal best times for tracked distances</li>
+<li>Performance metrics calculated</li>
+<li>Heart rate zones configured</li>
+</ul>
+</li>
+<li>
+<p>Check training plan schema is valid</p>
+<ul>
+<li>View in admin dashboard at <code>/admin</code></li>
+<li>Ensure schema has at least one block with workouts</li>
+</ul>
+</li>
+<li>
+<p>Verify target date is in the future</p>
+<ul>
+<li>Marathon date must be later than today</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plan-days-not-displaying">Plan Days Not Displaying<a href="#plan-days-not-displaying" class="hash-link" aria-label="Direct link to Plan Days Not Displaying" title="Direct link to Plan Days Not Displaying">​</a></h3>
+<p><strong>Symptoms:</strong> Training plan created but calendar is empty</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Check trainingplan collection in database</p>
+<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// In MongoDB, verify documents exist:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">db</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">trainingplan</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">find</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token literal-property property" style="color:#36acaa">trainingplanID</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;your-plan-id&quot;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">count</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Verify browser console for JavaScript errors</p>
+<ul>
+<li>Open DevTools (F12)</li>
+<li>Check Console tab for errors</li>
+</ul>
+</li>
+<li>
+<p>Clear browser cache and reload</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Hard refresh: Ctrl+Shift+R (Windows/Linux) or Cmd+Shift+R (Mac)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="performance-issues">Performance Issues<a href="#performance-issues" class="hash-link" aria-label="Direct link to Performance Issues" title="Direct link to Performance Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="slow-session-loading">Slow Session Loading<a href="#slow-session-loading" class="hash-link" aria-label="Direct link to Slow Session Loading" title="Direct link to Slow Session Loading">​</a></h3>
+<p><strong>Symptoms:</strong> Sessions list takes long time to load</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>Large dataset:</strong> If runner has 500+ sessions, loading time increases</p>
+<ul>
+<li>This is expected behavior for large datasets</li>
+<li>The system processes all sessions for display</li>
+</ul>
+</li>
+<li>
+<p><strong>Database indexes:</strong> Verify indexes are in place per <a href="/docs/storage/database-schema#performance-indexes">Database Schema</a></p>
+<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Performance indexes:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">db</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">sessionsFIT</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">createIndex</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token literal-property property" style="color:#36acaa">runner_id</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token literal-property property" style="color:#36acaa">uploaded_at</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token number" style="color:#36acaa">1</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">db</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">sessionStatistics</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">createIndex</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token literal-property property" style="color:#36acaa">runner_id</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token literal-property property" style="color:#36acaa">processed_timestamp</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token number" style="color:#36acaa">1</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="slow-chart-rendering">Slow Chart Rendering<a href="#slow-chart-rendering" class="hash-link" aria-label="Direct link to Slow Chart Rendering" title="Direct link to Slow Chart Rendering">​</a></h3>
+<p><strong>Symptoms:</strong> Training load charts render slowly or freeze browser</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Reduce date range</p>
+<ul>
+<li>Load smaller time periods (e.g., last 3 months instead of all time)</li>
+</ul>
+</li>
+<li>
+<p>Check runnerHistory collection size</p>
+<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">db</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">runnerHistory</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">find</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><span class="token literal-property property" style="color:#36acaa">runner_id</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token function maybe-class-name" style="color:#d73a49">ObjectId</span><span class="token punctuation" style="color:#393A34">(</span><span class="token spread operator" style="color:#393A34">...</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">count</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>For large datasets, reduce the display window</p>
+<ul>
+<li>Use date range filters to limit data points</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="development-issues">Development Issues<a href="#development-issues" class="hash-link" aria-label="Direct link to Development Issues" title="Direct link to Development Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="python-import-errors">Python Import Errors<a href="#python-import-errors" class="hash-link" aria-label="Direct link to Python Import Errors" title="Direct link to Python Import Errors">​</a></h3>
+<p><strong>Symptoms:</strong> <code>ModuleNotFoundError</code> when running locally</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Ensure virtual environment is activated</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">source venv/bin/activate  # macOS/Linux</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">venv\Scripts\activate     # Windows</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Install dependencies</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pip install -r requirements.txt</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Verify Python version</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python --version  # Should be 3.11-3.13</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mongodb-connection-works-locally-but-not-in-kubernetes">MongoDB Connection Works Locally But Not in Kubernetes<a href="#mongodb-connection-works-locally-but-not-in-kubernetes" class="hash-link" aria-label="Direct link to MongoDB Connection Works Locally But Not in Kubernetes" title="Direct link to MongoDB Connection Works Locally But Not in Kubernetes">​</a></h3>
+<p><strong>Symptoms:</strong> Application runs fine locally but fails when deployed to GKE</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>Most common cause:</strong> IP whitelisting</p>
+<ul>
+<li>See <a href="/docs/storage/mongodb-setup">MongoDB Setup</a> for detailed Kubernetes network troubleshooting</li>
+<li>GKE egress IP is different from LoadBalancer IP</li>
+</ul>
+</li>
+<li>
+<p>Check environment variables in Kubernetes</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">kubectl get configmap</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubectl describe configmap &lt;name&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="still-having-issues">Still Having Issues?<a href="#still-having-issues" class="hash-link" aria-label="Direct link to Still Having Issues?" title="Direct link to Still Having Issues?">​</a></h2>
+<p>If your problem isn&#x27;t listed here:</p>
+<ol>
+<li>
+<p><strong>Check application logs:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Docker</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">docker-compose logs -f web</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Kubernetes</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubectl logs deployment/smartrunning-localapp --tail=50</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><strong>Check MongoDB logs</strong> in MongoDB Atlas UI</p>
+</li>
+<li>
+<p><strong>Verify environment configuration:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Ensure all required variables are set</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cat .env | grep -v &#x27;^#&#x27; | grep -v &#x27;^$&#x27;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><strong>Search for similar issues</strong> in project documentation:</p>
+<ul>
+<li><a href="/docs/overview">Platform Overview</a> - General setup</li>
+<li><a href="/docs/architecture/overview">Architecture</a> - System design</li>
+<li><a href="/docs/storage/database-schema">Database Schema</a> - Database structure</li>
+<li><a href="/docs/storage/mongodb-setup">MongoDB Setup</a> - MongoDB-specific issues</li>
+</ul>
+</li>
+<li>
+<p><strong>Contact support</strong> with:</p>
+<ul>
+<li>Detailed error message</li>
+<li>Steps to reproduce</li>
+<li>Environment (local Docker / Kubernetes / local Python)</li>
+<li>Relevant log excerpts</li>
+</ul>
+</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/guides/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/storage/mongodb-setup"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">MongoDB Setup</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/privacy"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Privacy Policy</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#runner-creation--onboarding-issues" class="table-of-contents__link toc-highlight">Runner Creation &amp; Onboarding Issues</a><ul><li><a href="#missing-default-values-pbs-heart-rate-zones" class="table-of-contents__link toc-highlight">Missing Default Values (PBs, Heart Rate Zones)</a></li><li><a href="#javascript-errors-on-onboarding-page" class="table-of-contents__link toc-highlight">JavaScript Errors on Onboarding Page</a></li></ul></li><li><a href="#mongodb-connection-issues" class="table-of-contents__link toc-highlight">MongoDB Connection Issues</a><ul><li><a href="#connection-failed--timeout" class="table-of-contents__link toc-highlight">Connection Failed / Timeout</a></li><li><a href="#ssltls-handshake-errors" class="table-of-contents__link toc-highlight">SSL/TLS Handshake Errors</a></li></ul></li><li><a href="#authentication--session-issues" class="table-of-contents__link toc-highlight">Authentication &amp; Session Issues</a><ul><li><a href="#login-fails-in-production-gkekubernetes" class="table-of-contents__link toc-highlight">Login Fails in Production (GKE/Kubernetes)</a></li><li><a href="#session-expires-too-quickly" class="table-of-contents__link toc-highlight">Session Expires Too Quickly</a></li><li><a href="#cors-errors-during-login" class="table-of-contents__link toc-highlight">CORS Errors During Login</a></li></ul></li><li><a href="#docker-issues" class="table-of-contents__link toc-highlight">Docker Issues</a><ul><li><a href="#container-wont-start" class="table-of-contents__link toc-highlight">Container Won&#39;t Start</a></li><li><a href="#port-already-in-use" class="table-of-contents__link toc-highlight">Port Already in Use</a></li></ul></li><li><a href="#file-upload-issues" class="table-of-contents__link toc-highlight">File Upload Issues</a><ul><li><a href="#understanding-upload-workflow-important" class="table-of-contents__link toc-highlight">Understanding Upload Workflow (Important!)</a></li><li><a href="#file-too-large" class="table-of-contents__link toc-highlight">File Too Large</a></li><li><a href="#invalid-file-format" class="table-of-contents__link toc-highlight">Invalid File Format</a></li><li><a href="#upload-directory-permissions" class="table-of-contents__link toc-highlight">Upload Directory Permissions</a></li></ul></li><li><a href="#session-processing-issues" class="table-of-contents__link toc-highlight">Session Processing Issues</a><ul><li><a href="#background-job-stuck" class="table-of-contents__link toc-highlight">Background Job Stuck</a></li><li><a href="#statistics-not-calculated" class="table-of-contents__link toc-highlight">Statistics Not Calculated</a></li></ul></li><li><a href="#training-plan-issues" class="table-of-contents__link toc-highlight">Training Plan Issues</a><ul><li><a href="#plan-generation-fails" class="table-of-contents__link toc-highlight">Plan Generation Fails</a></li><li><a href="#plan-days-not-displaying" class="table-of-contents__link toc-highlight">Plan Days Not Displaying</a></li></ul></li><li><a href="#performance-issues" class="table-of-contents__link toc-highlight">Performance Issues</a><ul><li><a href="#slow-session-loading" class="table-of-contents__link toc-highlight">Slow Session Loading</a></li><li><a href="#slow-chart-rendering" class="table-of-contents__link toc-highlight">Slow Chart Rendering</a></li></ul></li><li><a href="#development-issues" class="table-of-contents__link toc-highlight">Development Issues</a><ul><li><a href="#python-import-errors" class="table-of-contents__link toc-highlight">Python Import Errors</a></li><li><a href="#mongodb-connection-works-locally-but-not-in-kubernetes" class="table-of-contents__link toc-highlight">MongoDB Connection Works Locally But Not in Kubernetes</a></li></ul></li><li><a href="#still-having-issues" class="table-of-contents__link toc-highlight">Still Having Issues?</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Home</a></li></ul></div><div class="col footer__col"><div class="footer__title">Contact</div><ul class="footer__items clean-list"><li class="footer__item"><a href="mailto:hans@smartrunning.coach" target="_blank" rel="noopener noreferrer" class="footer__link-item">email<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.smartrunning.coach/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SmartRunning.coach</div></div></div></footer></div>
+</body>
+</html>

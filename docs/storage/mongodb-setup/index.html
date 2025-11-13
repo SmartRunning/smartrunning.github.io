@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-storage/mongodb-setup" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">MongoDB Setup | SmartRunning</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://smartrunning.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://smartrunning.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://smartrunning.github.io/docs/storage/mongodb-setup"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="MongoDB Setup | SmartRunning"><meta data-rh="true" name="description" content="For general troubleshooting, see Troubleshooting. This guide covers MongoDB-specific network configuration issues."><meta data-rh="true" property="og:description" content="For general troubleshooting, see Troubleshooting. This guide covers MongoDB-specific network configuration issues."><link data-rh="true" rel="icon" href="/img/src_favicon.ico"><link data-rh="true" rel="canonical" href="https://smartrunning.github.io/docs/storage/mongodb-setup"><link data-rh="true" rel="alternate" href="https://smartrunning.github.io/docs/storage/mongodb-setup" hreflang="en"><link data-rh="true" rel="alternate" href="https://smartrunning.github.io/docs/storage/mongodb-setup" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.2b48f0f9.css">
+<script src="/assets/js/runtime~main.a1c4be24.js" defer="defer"></script>
+<script src="/assets/js/main.b6da5e85.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/SRC_logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/SRC_logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/SRC_logo.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SmartRunning</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Documentation</a><a class="navbar__item navbar__link" href="/blog">Releases</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro">SmartRunning intro</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/overview">Platform Overview</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/beta/HowTo">Beta</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/architecture/overview">Architecture</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/storage/database-schema">Storage</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/storage/database-schema">Database Schema</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/storage/mongodb-setup">MongoDB Setup</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/guides/troubleshooting">Guides</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/privacy">Privacy Policy</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Storage</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">MongoDB Setup</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>MongoDB Atlas Network Configuration - Troubleshooting Guide</h1></header>
+<p>For general troubleshooting, see <a href="/docs/guides/troubleshooting">Troubleshooting</a>. This guide covers MongoDB-specific network configuration issues.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h2>
+<p>The SmartRunning application connects to MongoDB Atlas, a cloud-hosted database service. Network configuration, particularly IP whitelisting, is critical for successful connections from deployed applications.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-issue-ip-whitelisting">Common Issue: IP Whitelisting<a href="#common-issue-ip-whitelisting" class="hash-link" aria-label="Direct link to Common Issue: IP Whitelisting" title="Direct link to Common Issue: IP Whitelisting">​</a></h2>
+<p><strong>Problem</strong>: SSL/TLS handshake errors in cloud deployments (but not local Docker)</p>
+<p><strong>Root Cause</strong>: MongoDB Atlas IP whitelist blocking connections, NOT SSL certificate issues</p>
+<p><strong>Key Understanding</strong>:</p>
+<ol>
+<li>Load Balancer IP ≠ Egress IP for outbound database connections</li>
+<li>Cloud platforms use managed NAT that may change IPs between deployments</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting-steps">Troubleshooting Steps<a href="#troubleshooting-steps" class="hash-link" aria-label="Direct link to Troubleshooting Steps" title="Direct link to Troubleshooting Steps">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="if-ssltls-errors-occur-after-deployments">If SSL/TLS Errors Occur After Deployments<a href="#if-ssltls-errors-occur-after-deployments" class="hash-link" aria-label="Direct link to If SSL/TLS Errors Occur After Deployments" title="Direct link to If SSL/TLS Errors Occur After Deployments">​</a></h3>
+<ol>
+<li>
+<p><strong>Check Current Egress IP</strong>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">kubectl exec -it deployment/your-app -- \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  python -c &quot;import urllib.request; print(&#x27;Current Egress IP:&#x27;, urllib.request.urlopen(&#x27;https://api.ipify.org&#x27;).read().decode())&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p><strong>Compare with MongoDB Atlas Whitelist</strong>:</p>
+<ul>
+<li>Go to MongoDB Atlas → Network Access</li>
+<li>Verify the current egress IP is whitelisted</li>
+<li>Format should be: <code>X.X.X.X/32</code></li>
+</ul>
+</li>
+<li>
+<p><strong>If IP Changed, Add to Whitelist</strong>:</p>
+<ul>
+<li>Add the new IP with <code>/32</code> suffix</li>
+<li>Keep existing working IPs until confirmed stable</li>
+<li>Test connection after adding</li>
+</ul>
+</li>
+<li>
+<p><strong>Verify Application Logs</strong>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">kubectl logs deployment/your-app --tail=10</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Look for connection success/failure messages</p>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloud-platform-nat-behavior">Cloud Platform NAT Behavior<a href="#cloud-platform-nat-behavior" class="hash-link" aria-label="Direct link to Cloud Platform NAT Behavior" title="Direct link to Cloud Platform NAT Behavior">​</a></h3>
+<ul>
+<li><strong>Custom Cloud NAT</strong>: May be created but not used by managed services</li>
+<li><strong>Managed NAT</strong>: Cloud platforms use their own NAT gateways</li>
+<li><strong>IP Stability</strong>: Egress IPs can change between deployments</li>
+<li><strong>Solution</strong>: Use static IPs or whitelist range if supported</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="emergency-fixes">Emergency Fixes<a href="#emergency-fixes" class="hash-link" aria-label="Direct link to Emergency Fixes" title="Direct link to Emergency Fixes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quick-fix-for-immediate-access">Quick Fix for Immediate Access<a href="#quick-fix-for-immediate-access" class="hash-link" aria-label="Direct link to Quick Fix for Immediate Access" title="Direct link to Quick Fix for Immediate Access">​</a></h3>
+<p>If the application is down due to IP blocking:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># 1. Get current egress IP</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubectl exec -it deployment/your-app -- \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  python -c &quot;import urllib.request; print(urllib.request.urlopen(&#x27;https://api.ipify.org&#x27;).read().decode())&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 2. Add this IP to MongoDB Atlas Network Access with /32 suffix</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># 3. Test connection</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubectl logs deployment/your-app --tail=5</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="common-misconceptions">Common Misconceptions<a href="#common-misconceptions" class="hash-link" aria-label="Direct link to Common Misconceptions" title="Direct link to Common Misconceptions">​</a></h3>
+<ul>
+<li>❌ Load Balancer IP is NOT used for MongoDB connections</li>
+<li>❌ SSL certificate issues are NOT typically the root cause</li>
+<li>✅ IP whitelist blocking is the actual problem</li>
+<li>✅ Local Docker works because it uses different network routing (check via <a href="https://ipinfo.io/ip" target="_blank" rel="noopener noreferrer">ipinfo.io</a>)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="best-practices">Best Practices<a href="#best-practices" class="hash-link" aria-label="Direct link to Best Practices" title="Direct link to Best Practices">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-production-deployments">For Production Deployments<a href="#for-production-deployments" class="hash-link" aria-label="Direct link to For Production Deployments" title="Direct link to For Production Deployments">​</a></h3>
+<ol>
+<li>
+<p><strong>Use Static IPs</strong>:</p>
+<ul>
+<li>Reserve static external IPs in your cloud provider</li>
+<li>Configure NAT gateway to use static IPs</li>
+<li>Whitelist these static IPs in MongoDB Atlas</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitor IP Changes</strong>:</p>
+<ul>
+<li>Set up alerts for connection failures</li>
+<li>Log egress IP on application startup</li>
+<li>Document current working IPs</li>
+</ul>
+</li>
+<li>
+<p><strong>Maintain IP Documentation</strong>:</p>
+<ul>
+<li>Keep record of whitelisted IPs</li>
+<li>Note which environment uses which IP</li>
+<li>Update documentation when IPs change</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-developmenttesting">For Development/Testing<a href="#for-developmenttesting" class="hash-link" aria-label="Direct link to For Development/Testing" title="Direct link to For Development/Testing">​</a></h3>
+<ol>
+<li>
+<p><strong>Whitelist Development IPs</strong>:</p>
+<ul>
+<li>Add your local development machine IP</li>
+<li>Add CI/CD pipeline IPs if applicable</li>
+<li>Use <code>/32</code> suffix for single IPs</li>
+</ul>
+</li>
+<li>
+<p><strong>Temporary Access</strong>:</p>
+<ul>
+<li>MongoDB Atlas allows temporary whitelist entries</li>
+<li>Set expiration times for development IPs</li>
+<li>Remove unused IPs regularly</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-considerations">Security Considerations<a href="#security-considerations" class="hash-link" aria-label="Direct link to Security Considerations" title="Direct link to Security Considerations">​</a></h3>
+<ol>
+<li>
+<p><strong>Avoid <code>0.0.0.0/0</code></strong>:</p>
+<ul>
+<li>Never whitelist all IPs in production</li>
+<li>Use specific IPs or narrow IP ranges</li>
+<li>Principle of least privilege</li>
+</ul>
+</li>
+<li>
+<p><strong>Regular Audits</strong>:</p>
+<ul>
+<li>Review whitelisted IPs monthly</li>
+<li>Remove IPs no longer in use</li>
+<li>Verify ownership of all IPs</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Segmentation</strong>:</p>
+<ul>
+<li>Use different MongoDB clusters for dev/staging/prod</li>
+<li>Apply different whitelist rules per environment</li>
+<li>Limit production access strictly</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ssltls-configuration">SSL/TLS Configuration<a href="#ssltls-configuration" class="hash-link" aria-label="Direct link to SSL/TLS Configuration" title="Direct link to SSL/TLS Configuration">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="docker-configuration">Docker Configuration<a href="#docker-configuration" class="hash-link" aria-label="Direct link to Docker Configuration" title="Direct link to Docker Configuration">​</a></h3>
+<p>The application Docker image includes:</p>
+<ul>
+<li><code>ca-certificates</code> package</li>
+<li><code>openssl</code> package</li>
+<li><code>certifi</code> Python package for SSL certificate management</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="environment-variables">Environment Variables<a href="#environment-variables" class="hash-link" aria-label="Direct link to Environment Variables" title="Direct link to Environment Variables">​</a></h3>
+<p>Required SSL configuration:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>These are typically set automatically in the Dockerfile.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="connection-string-format">Connection String Format<a href="#connection-string-format" class="hash-link" aria-label="Direct link to Connection String Format" title="Direct link to Connection String Format">​</a></h3>
+<p>MongoDB Atlas connection strings should use:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&amp;w=majority</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><strong>Security Notes</strong>:</p>
+<ul>
+<li>Never commit connection strings to version control</li>
+<li>Use environment variables for credentials</li>
+<li>Rotate passwords regularly</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="kubernetes-specific-issues">Kubernetes-Specific Issues<a href="#kubernetes-specific-issues" class="hash-link" aria-label="Direct link to Kubernetes-Specific Issues" title="Direct link to Kubernetes-Specific Issues">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pod-to-pod-vs-pod-to-external">Pod-to-Pod vs Pod-to-External<a href="#pod-to-pod-vs-pod-to-external" class="hash-link" aria-label="Direct link to Pod-to-Pod vs Pod-to-External" title="Direct link to Pod-to-Pod vs Pod-to-External">​</a></h3>
+<ul>
+<li>Internal cluster communication uses cluster IPs</li>
+<li>External MongoDB connections use node/NAT egress IPs</li>
+<li>These are different IP addresses</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="network-policies">Network Policies<a href="#network-policies" class="hash-link" aria-label="Direct link to Network Policies" title="Direct link to Network Policies">​</a></h3>
+<p>If using Kubernetes Network Policies:</p>
+<ul>
+<li>Allow egress to MongoDB Atlas IP ranges</li>
+<li>Check if policies are blocking database connections</li>
+<li>Verify DNS resolution is allowed</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="service-mesh-considerations">Service Mesh Considerations<a href="#service-mesh-considerations" class="hash-link" aria-label="Direct link to Service Mesh Considerations" title="Direct link to Service Mesh Considerations">​</a></h3>
+<p>If using Istio, Linkerd, or similar:</p>
+<ul>
+<li>Egress traffic may be proxied</li>
+<li>Check service mesh egress gateway IPs</li>
+<li>Configure MongoDB Atlas whitelist accordingly</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-connections">Testing Connections<a href="#testing-connections" class="hash-link" aria-label="Direct link to Testing Connections" title="Direct link to Testing Connections">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="from-local-machine">From Local Machine<a href="#from-local-machine" class="hash-link" aria-label="Direct link to From Local Machine" title="Direct link to From Local Machine">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Test DNS resolution</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">nslookup cluster.mongodb.net</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Test connection with mongosh</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mongosh &quot;mongodb+srv://cluster.mongodb.net/database&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="from-kubernetes-pod">From Kubernetes Pod<a href="#from-kubernetes-pod" class="hash-link" aria-label="Direct link to From Kubernetes Pod" title="Direct link to From Kubernetes Pod">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Test from running pod</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubectl exec -it deployment/your-app -- \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  python -c &quot;from pymongo import MongoClient; \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  client = MongoClient(&#x27;mongodb+srv://...&#x27;); \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  print(&#x27;Connected:&#x27;, client.server_info())&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="verify-egress-ip">Verify Egress IP<a href="#verify-egress-ip" class="hash-link" aria-label="Direct link to Verify Egress IP" title="Direct link to Verify Egress IP">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Check what IP MongoDB Atlas sees</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kubectl exec -it deployment/your-app -- \</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  curl https://api.ipify.org</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="related-documentation">Related Documentation<a href="#related-documentation" class="hash-link" aria-label="Direct link to Related Documentation" title="Direct link to Related Documentation">​</a></h2>
+<ul>
+<li><a href="/docs/guides/troubleshooting">Troubleshooting</a> - General troubleshooting guide</li>
+<li><a href="/docs/storage/database-schema">Database Schema</a> - MongoDB collection structures</li>
+<li><a href="/docs/architecture/deployment">Deployment</a> - Deployment architecture details</li>
+</ul>
+<hr>
+<p><strong>Document Version:</strong> 2.0 (Public - Sanitized)</p>
+<p><strong>Note:</strong> This document provides general guidance for MongoDB Atlas network configuration. Specific cluster addresses, IP addresses, and connection strings have been redacted for security.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/storage/mongodb-setup.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/storage/database-schema"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Database Schema</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/guides/troubleshooting"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Troubleshooting</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#common-issue-ip-whitelisting" class="table-of-contents__link toc-highlight">Common Issue: IP Whitelisting</a></li><li><a href="#troubleshooting-steps" class="table-of-contents__link toc-highlight">Troubleshooting Steps</a><ul><li><a href="#if-ssltls-errors-occur-after-deployments" class="table-of-contents__link toc-highlight">If SSL/TLS Errors Occur After Deployments</a></li><li><a href="#cloud-platform-nat-behavior" class="table-of-contents__link toc-highlight">Cloud Platform NAT Behavior</a></li></ul></li><li><a href="#emergency-fixes" class="table-of-contents__link toc-highlight">Emergency Fixes</a><ul><li><a href="#quick-fix-for-immediate-access" class="table-of-contents__link toc-highlight">Quick Fix for Immediate Access</a></li><li><a href="#common-misconceptions" class="table-of-contents__link toc-highlight">Common Misconceptions</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#for-production-deployments" class="table-of-contents__link toc-highlight">For Production Deployments</a></li><li><a href="#for-developmenttesting" class="table-of-contents__link toc-highlight">For Development/Testing</a></li><li><a href="#security-considerations" class="table-of-contents__link toc-highlight">Security Considerations</a></li></ul></li><li><a href="#ssltls-configuration" class="table-of-contents__link toc-highlight">SSL/TLS Configuration</a><ul><li><a href="#docker-configuration" class="table-of-contents__link toc-highlight">Docker Configuration</a></li><li><a href="#environment-variables" class="table-of-contents__link toc-highlight">Environment Variables</a></li><li><a href="#connection-string-format" class="table-of-contents__link toc-highlight">Connection String Format</a></li></ul></li><li><a href="#kubernetes-specific-issues" class="table-of-contents__link toc-highlight">Kubernetes-Specific Issues</a><ul><li><a href="#pod-to-pod-vs-pod-to-external" class="table-of-contents__link toc-highlight">Pod-to-Pod vs Pod-to-External</a></li><li><a href="#network-policies" class="table-of-contents__link toc-highlight">Network Policies</a></li><li><a href="#service-mesh-considerations" class="table-of-contents__link toc-highlight">Service Mesh Considerations</a></li></ul></li><li><a href="#testing-connections" class="table-of-contents__link toc-highlight">Testing Connections</a><ul><li><a href="#from-local-machine" class="table-of-contents__link toc-highlight">From Local Machine</a></li><li><a href="#from-kubernetes-pod" class="table-of-contents__link toc-highlight">From Kubernetes Pod</a></li><li><a href="#verify-egress-ip" class="table-of-contents__link toc-highlight">Verify Egress IP</a></li></ul></li><li><a href="#related-documentation" class="table-of-contents__link toc-highlight">Related Documentation</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Home</a></li></ul></div><div class="col footer__col"><div class="footer__title">Contact</div><ul class="footer__items clean-list"><li class="footer__item"><a href="mailto:hans@smartrunning.coach" target="_blank" rel="noopener noreferrer" class="footer__link-item">email<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.smartrunning.coach/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SmartRunning.coach</div></div></div></footer></div>
+</body>
+</html>
